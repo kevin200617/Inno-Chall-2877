@@ -26,22 +26,25 @@ void setup() {
   GIMSK |= (1 << PCIE);             // Enable PCINT interrupt in the general interrupt mask
   pinMode(INT_PIN, INPUT_PULLUP);   // Set our interrupt pin as input with a pullup to keep it stable
   sei();                            //last line of setup - enable interrupts after setup
+  system_sleep();
 }
 // This is the interrupt handler called when there is any change on the INT_PIN
 // ISR is defined in the headers - the ATtiny85 only has one handler
 
 void loop(){
-  if (whistle_status == 0){
+  if (whistle_status == 1){
     digitalWrite(LED_PIN, HIGH);
   }
   else{
     digitalWrite(LED_PIN, LOW);
+    system_sleep();
   }
 }
 
 // set system into the sleep state 
 // system wakes up when wtchdog is timed out
 void system_sleep() {
+  whistle_status == 0;
   cbi(ADCSRA,ADEN);                    // switch Analog to Digitalconverter OFF
 
   set_sleep_mode(SLEEP_MODE_PWR_DOWN); // sleep mode is set here
