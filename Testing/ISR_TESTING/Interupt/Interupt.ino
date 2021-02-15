@@ -9,18 +9,11 @@
 #define PCINT_VECTOR PCINT0_vect      // This step is not necessary - it's a naming thing for clarity
 
 volatile bool whistle_status = 0;
- 
+
 void setup() {
   pinMode(LED_PIN, OUTPUT);
-  for (int i; i<10; i++){
-    pinMode(LED_PIN, OUTPUT);
-    digitalWrite(LED_PIN, HIGH);
-    delay(100);
-    digitalWrite(LED_PIN, LOW);
-    delay(100);
-  }
 
-  //cli();                            // Disable interrupts during setup
+  cli();                            // Disable interrupts during setup
   PCMSK |= (1 << INTERRUPT_PIN);    // Enable interrupt handler (ISR) for our chosen interrupt pin (PCINT1/PB1/pin 6)
   GIMSK |= (1 << PCIE);             // Enable PCINT interrupt in the general interrupt mask
   pinMode(INT_PIN, INPUT_PULLUP);   // Set our interrupt pin as input with a pullup to keep it stable
@@ -30,21 +23,22 @@ void setup() {
 // ISR is defined in the headers - the ATtiny85 only has one handler
 
 void loop(){
-  digitalWrite(LED_PIN, HIGH);
-  delay(100);
-  digitalWrite(LED_PIN, LOW);
-  delay(100);
+  if (whistle_status == 1){
+    digitalWrite(LED_PIN, HIGH);
+  }
+  else{
+    digitalWrite(LED_PIN, LOW);
+  }
 }
 
 
 ISR(PCINT_VECTOR)
 {
-  if(digitalRead(INT_PIN) == LOW ) {
+  if (whistle_status == 0){
     whistle_status = 1;
-    digitalWrite(LED_PIN, HIGH);
   }
   else{
     whistle_status = 0;
-    digitalWrite(LED_PIN, LOW);
   }
+  //delayMicroseconds(500);
 }

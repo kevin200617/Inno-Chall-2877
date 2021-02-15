@@ -1,0 +1,4 @@
+{
+    "board": "digistump:avr:digispark-tiny",
+    "sketch": "Testing\\Sleep+ISR\\Sleep\\Sleep.ino"
+}
