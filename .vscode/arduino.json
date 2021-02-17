@@ -1,5 +1,5 @@
 {
-    "board": "arduino:avr:uno",
-    "sketch": "Testing\\HC-12_Change_Mode\\RX_Change_Mode\\RX_Change_Mode.ino",
+    "board": "digistump:avr:digispark-tiny",
+    "sketch": "Testing\\Serial_Speak_For\\Serial_Speak_For.ino",
     "programmer": "AVRISP mkII"
 }
