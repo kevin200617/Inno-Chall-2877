@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.ino": "cpp",
+        "ostream": "cpp",
+        "cstddef": "cpp",
+        "initializer_list": "cpp",
+        "xstring": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp"
+    }
+}

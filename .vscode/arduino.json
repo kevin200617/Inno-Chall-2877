@@ -1,4 +1,5 @@
 {
-    "board": "digistump:avr:digispark-tiny",
-    "sketch": "Testing\\Sleep+ISR\\Sleep\\Sleep.ino"
+    "board": "arduino:avr:uno",
+    "sketch": "Testing\\HC-12_Change_Mode\\RX_Change_Mode\\RX_Change_Mode.ino",
+    "programmer": "AVRISP mkII"
 }

@@ -3,12 +3,17 @@
         {
             "name": "Win32",
             "includePath": [
+                "C:\\Program Files (x86)\\Arduino\\tools\\**",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\**",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\**",
                 "C:\\Users\\Kevin Yang\\AppData\\Local\\Arduino15\\packages\\digistump\\tools\\**",
                 "C:\\Users\\Kevin Yang\\Documents\\Arduino\\libraries\\**",
                 "C:\\Program Files (x86)\\Arduino\\libraries\\**",
                 "C:\\Users\\Kevin Yang\\AppData\\Local\\Arduino15\\packages\\digistump\\hardware\\avr\\1.6.7\\**"
             ],
-            "forcedInclude": [],
+            "forcedInclude": [
+                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
+            ],
             "defines": [
                 "USBCON"
             ],
